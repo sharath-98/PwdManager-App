@@ -23,6 +23,14 @@ export class SiteListComponent implements OnInit {
     this.loadSites();
   }
 
+  deleteSite(id:string){
+    this.pwdService.deleteSite(id).then(()=>{
+      console.log("Site deleted");
+    }).catch((err)=>{
+      console.log(err);
+    });
+  }
+
   editSite(site: any){
     this.siteName = site.siteName;
     this.siteImgUrl = site.siteImgUrl;
