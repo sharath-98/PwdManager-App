@@ -12,4 +12,8 @@ export class SiteListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(values: object){
+    console.log(values);
+  }
+
 }
