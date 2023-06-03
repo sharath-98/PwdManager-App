@@ -28,4 +28,19 @@ export class PasswordManagerService {
     return updateDoc(docInstance, data);
   }
 
+  addPwd(data: object, siteId: string){
+    const dbInstance = collection(this.firestore, `sites/${siteId}/passwords`);
+    return addDoc(dbInstance, data);
+  }
+
+  editPwd(data: object, siteId: string, pwdId: string){
+    const docInstance = doc(this.firestore, `sites/${siteId}/passwords`, pwdId);
+    return updateDoc(docInstance, data);
+  }
+
+  loadPwd(siteId: string){
+    const dbInstance = collection(this.firestore, `sites/${siteId}/passwords`);
+    return collectionData(dbInstance, {idField:'id'});
+  }
+
 }

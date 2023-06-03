@@ -32,7 +32,7 @@
             <button (click)="onSubmit(addForm.value)" type="submit" class="mt-10 mx-0 5 px-5 py-3 text-sm bg-blue-500 mr-3 shadow text-white shadow rounded-md">
                {{ !isEditEnabled? 'Add New Site':'Update Site'}}
             </button>
-            <button (click)="formReset()" class="mt-10 mx-0 5 px-5 py-3 text-sm bg-blue-500 shadow text-white shadow rounded-md">
+            <button (click)="formReset()" class="mt-10 mx-0 5 px-5 py-3 text-sm bg-red-500 shadow text-white shadow rounded-md">
                 Cancel
             </button>
         </form>
@@ -54,7 +54,7 @@
                 <button (click)="editSite(site)" class="my-3 ml-3 px-2.5 py-2 bg-blue-500  text-sm text-white shadow rounded-md">
                     Edit
                 </button>
-                <button (click)="deleteSite(site.id)" class="my-3 ml-3 px-2.5 py-2 bg-blue-500  text-sm text-white shadow rounded-md">
+                <button (click)="deleteSite(site.id)" class="my-3 ml-3 px-2.5 py-2 bg-red-500  text-sm text-white shadow rounded-md">
                     Delete
                 </button>
             </div>
