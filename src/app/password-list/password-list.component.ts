@@ -55,6 +55,11 @@ export class PasswordListComponent implements OnInit {
     }
   }
 
+  deletePwd(pwd: IPwd){
+    if(pwd.id != null)
+      this.pwdManager.deletePwd(this.siteId, pwd.id);
+  }
+
   editPwd(pwd: IPwd){
     if(pwd.id != null)
       this.pwdId = pwd.id;

@@ -38,6 +38,11 @@ export class PasswordManagerService {
     return updateDoc(docInstance, data);
   }
 
+  deletePwd(siteId: string, pwdId: string){
+    const docInstance = doc(this.firestore, `sites/${siteId}/passwords`, pwdId);
+    return deleteDoc(docInstance);
+  }
+
   loadPwd(siteId: string){
     const dbInstance = collection(this.firestore, `sites/${siteId}/passwords`);
     return collectionData(dbInstance, {idField:'id'});
