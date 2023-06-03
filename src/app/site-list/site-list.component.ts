@@ -16,6 +16,8 @@ export class SiteListComponent implements OnInit {
   siteUrl !:string;
   siteId !:string;
   isEditEnabled: boolean = false;
+  isSuccess: boolean  =false;
+  successMsg!: string;
 
   constructor(private pwdService: PasswordManagerService) { }
 
@@ -25,7 +27,8 @@ export class SiteListComponent implements OnInit {
 
   deleteSite(id:string){
     this.pwdService.deleteSite(id).then(()=>{
-      console.log("Site deleted");
+      this.isSuccess = true
+      this.successMsg = "Site deleted";
     }).catch((err)=>{
       console.log(err);
     });
@@ -44,13 +47,15 @@ export class SiteListComponent implements OnInit {
     console.log(values);
     if(this.isEditEnabled){
       this.pwdService.updateSite(this.siteId, values).then(()=>{
-        console.log('Data Updated.');
+        this.isSuccess = true
+        this.successMsg = "Site updated";
       }).catch((err)=>{
         console.log(err);
       })
     } else{
       this.pwdService.addSite(values).then(()=>{
-            console.log("New Site Added.")
+            this.isSuccess = true
+            this.successMsg = "Site Added";
           }).catch((err)=>{
             console.log(err);
           });
